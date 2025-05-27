@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dr. Dnyaneshwari Kandhare - Homeopathy Doctor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #e6f2f0; /* soft pastel teal background */
+      color: #004d40; /* dark teal text for strong contrast */
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: #00796b;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-weight: 600;
+    }
+    a:hover,
+    a:focus {
+      color: #004d40;
+    }
+
+    nav {
+      background: #ffffff;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgb(0 77 64 / 0.15);
+      display: flex;
+      justify-content: center;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    nav ul li {
+      line-height: 1.2;
+    }
+
+    /* Header with overlay */
+    header {
+      position: relative;
+      height: 100vh;
+      background: url('https://source.unsplash.com/1600x900/?homeopathy,healing,nature') center center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #e0f2f1;
+      padding: 0 1.5rem;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,77,64,0.7); /* dark teal overlay for contrast */
+      z-index: 0;
+    }
+    header h1,
+    header h2 {
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+      user-select:none;
+    }
+    header h1 {
+      font-size: 3.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1.5px;
+      animation: fadeInUp 1s ease forwards;
+    }
+    header h2 {
+      font-weight: 400;
+      font-size: 1.6rem;
+      font-style: italic;
+      letter-spacing: 0.5px;
+      animation: fadeInUp 1.2s ease forwards;
+    }
+
+    /* Fade In Up Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Sections */
+    section {
+      max-width: 1100px;
+      background: #ffffff;
+      margin: 3rem auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 15px rgb(0 77 64 / 0.07);
+      padding: 3rem 2.5rem;
+      color: #004d40;
+      scroll-margin-top: 80px;
+    }
+    section h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-weight: 600;
+      color: #00796b;
+      letter-spacing: 1px;
+    }
+
+    /* About */
+    .about {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .about img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 8px 18px rgb(0 77 64 / 0.15);
+      flex-shrink: 0;
+      user-select:none;
+    }
+    .about .bio {
+      max-width: 600px;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    /* Services & Testimonials */
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .service-card,
+    .testimonial-card {
+      background: #e0f2f1;
+      border-radius: 12px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 4px 10px rgb(0 77 64 / 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      user-select:none;
+    }
+    .service-card:hover,
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 22px rgb(0 77 64 / 0.20);
+    }
+    .service-card h3 {
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: #004d40;
+      letter-spacing: 0.5px;
+    }
+    .service-card p {
+      font-weight: 400;
+      font-size: 1rem;
+      color: #004d40dd;
+    }
+    .testimonial-card p {
+      font-size: 1rem;
+      font-style: italic;
+      margin-bottom: 1rem;
+      color: #004d40dd;
+    }
+    .testimonial-card .author {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #004d40;
+      text-align: right;
+    }
+
+    /* Gallery */
+    #gallery .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+      gap: 1.2rem;
+    }
+    #gallery .gallery-grid img {
+      width: 100%;
+      height: 185px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgb(0 77 64 / 0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      user-select:none;
+    }
+    #gallery .gallery-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgb(0 77 64 / 0.2);
+    }
+
+    /* Contact Form */
+    #contact form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    #contact input[type="text"],
+    #contact input[type="email"],
+    #contact textarea {
+      padding: 12px 15px;
+      border: 2px solid #00796b;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      color: #004d40;
+      transition: border-color 0.3s ease;
+      resize: vertical;
+    }
+    #contact input[type="text"]:disabled {
+      background: #b2dfdb;
+      color: #004d40cc;
+      cursor: default;
+    }
+    #contact input[type="text"]:focus,
+    #contact input[type="email"]:focus,
+    #contact textarea:focus {
+      outline: none;
+      border-color: #004d40;
+      background: #e0f2f1;
+    }
+    #contact button {
+      background: #00796b;
+      color: #e0f2f1;
+      border: none;
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      user-select:none;
+      will-change: background-color;
+    }
+    #contact button:hover,
+    #contact button:focus {
+      background: #004d40;
+      outline: none;
+    }
+
+    /* Footer */
+    footer {
+      background: #004d40;
+      color: #b2dfdb;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.95rem;
+      user-select:none;
+    }
+    footer .social-icons {
+      margin-bottom: 12px;
+    }
+    footer .social-icons a {
+      color: #b2dfdb;
+      font-weight: 600;
+      margin: 0 15px;
+      transition: color 0.3s ease;
+      font-size: 1.2rem;
+    }
+    footer .social-icons a:hover,
+    footer .social-icons a:focus {
+      color: #e0f2f1;
+      outline:none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.6rem;
+      }
+      header h2 {
+        font-size: 1.1rem;
+      }
+      nav ul {
+        gap: 1.2rem;
+        font-size: 0.95rem;
+      }
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
+      .about .bio {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav aria-label="Main Navigation">
+    <ul>
+      <li><a href="#home" tabindex="0">Home</a></li>
+      <li><a href="#about" tabindex="0">About</a></li>
+      <li><a href="#services" tabindex="0">Services</a></li>
+      <li><a href="#testimonials" tabindex="0">Testimonials</a></li>
+      <li><a href="#gallery" tabindex="0">Gallery</a></li>
+      <li><a href="#contact" tabindex="0">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="home" role="banner" aria-label="Hero Section">
+    <h1>Dr. Dnyaneshwari Kandhare</h1>
+    <h2>Homeopathy Doctor | Holistic Wellness Expert</h2>
+  </header>
+
+  <main>
+    <section id="about" aria-label="About Dr. Dnyaneshwari Kandhare">
+      <h2>About Me</h2>
+      <div class="about">
+        <img src="https://source.unsplash.com/220x220/?doctor,portrait,smile" alt="Dr. Dnyaneshwari Kandhare" loading="lazy"/>
+        <p class="bio">
+          With over 10 years of dedicated experience, I specialize in gentle, natural healing methods rooted in homeopathy.
+          My approach emphasizes compassionate care and individualized treatment plans focused on holistic wellness for every patient.
+        </p>
+      </div>
+    </section>
+
+    <section id="services" aria-label="Services offered">
+      <h2>Services</h2>
+      <div class="grid-4">
+        <article class="service-card" tabindex="0" aria-label="Service: Chronic Illness Treatment">
+          <h3>Chronic Illness Treatment</h3>
+          <p>Effective, long-term management of chronic health conditions tailored to your unique needs.</p>
+        </article>
+        <article class="service-card" tabindex="0" aria-label="Service: Mental Wellness">
+          <h3>Mental Wellness</h3>
+          <p>Compassionate support focusing on mental and emotional health to promote overall wellness.</p>
+        </article>
+        <article class="service-card" tabindex="0" aria-label="Service: Child Health">
+          <h3>Child Health</h3>
+          <p>Safe and gentle homeopathic treatments designed specifically for children’s needs.</p>
+        </article>
+        <article class="service-card" tabindex="0" aria-label="Service: Women’s Care">
+          <h3>Women’s Care</h3>
+          <p>Holistic approaches to meet women’s health challenges and promote balance and vitality.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="testimonials" aria-label="Patient Testimonials">
+      <h2>Testimonials</h2>
+      <div class="grid-4">
+        <blockquote class="testimonial-card" tabindex="0">
+          <p>"Dr. Dnyaneshwari’s care transformed my health. Her approach feels personalized and genuinely caring."</p>
+          <div class="author">- Aditi S.</div>
+        </blockquote>
+        <blockquote class="testimonial-card" tabindex="0">
+          <p>"Thanks to Dr. Kandhare’s treatment, I regained my energy and mental peace."</p>
+          <div class="author">- Rajesh K.</div>
+        </blockquote>
+        <blockquote class="testimonial-card" tabindex="0">
+          <p>"A wonderful doctor who listens and provides healing beyond just medicine."</p>
+          <div class="author">- Priya M.</div>
+        </blockquote>
+      </div>
+    </section>
+
+    <section id="gallery" aria-label="Gallery of related imagery">
+      <h2>Gallery</h2>
+      <div class="gallery-grid" role="list">
+        <img src="https://source.unsplash.com/300x200/?homeopathy" alt="Homeopathy remedies on display" loading="lazy" role="listitem"/>
+        <img src="https://source.unsplash.com/300x200/?healing,nature" alt="Natural healing herbs" loading="lazy" role="listitem"/>
+        <img src="https://source.unsplash.com/300x200/?natural-remedies" alt="Natural fresh remedies" loading="lazy" role="listitem"/>
+        <img src="https://source.unsplash.com/300x200/?wellness,therapy" alt="Holistic wellness therapy" loading="lazy" role="listitem"/>
+      </div>
+    </section>
+
+    <section id="contact" aria-label="Contact Dr. Dnyaneshwari Kandhare">
+      <h2>Contact Me</h2>
+      <form class="contact-form" aria-describedby="contact-instruction" novalidate>
+        <p id="contact-instruction" style="margin-bottom:1rem; text-align:center; color:#00796b; font-weight:600;">
+          Please fill in the form below to send a message or inquiry.
+        </p>
+        <input type="text" name="name" placeholder="Your Name" required aria-required="true" aria-label="Your Name" />
+        <input type="email" name="email" placeholder="Your Email Address" required aria-required="true" aria-label="Your Email Address" />
+        <textarea name="message" rows="5" placeholder="Your Message" required aria-required="true" aria-label="Your Message"></textarea>
+        <input type="text" value="Clinic Location: Pune, India" disabled aria-disabled="true" />
+        <button type="submit" aria-label="Send Message">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer aria-label="Footer">
+    <div class="social-icons" role="list" aria-label="Social Media Links">
+      <a href="https://www.linkedin.com" target="_blank" role="listitem" aria-label="LinkedIn Profile" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com" target="_blank" role="listitem" aria-label="Instagram Profile" rel="noopener">Instagram</a>
+    </div>
+    <p>Email: <a href="mailto:dnyaneshwari@example.com" style="color:#b2dfdb;">dnyaneshwari@example.com</a></p>
+    <p>Visitor Count: <span id="visitorCount" aria-live="polite" aria-atomic="true">0</span></p>
+  </footer>
+
+  <script>
+    // Visitor counter stored in localStorage
+    let count = localStorage.getItem('visitorCount') || 0;
+    count++;
+    localStorage.setItem('visitorCount', count);
+    document.getElementById('visitorCount').textContent = count;
+
+    // Form submission handler (dummy)
+    document.querySelector('.contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('Thank you for reaching out! Your message has been received.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
+
